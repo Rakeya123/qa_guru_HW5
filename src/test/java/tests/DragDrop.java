@@ -1,4 +1,4 @@
-package tests.Selenide;
+package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
@@ -20,22 +20,36 @@ public class DragDrop {
     }
 
     @Test
-    void changingPlaces() {
+    void changingPlacesTest1() {
 
 
         open("/drag_and_drop");
-     SelenideElement element = $("#column-b");
-        // actions().dragAndDropBy(element, 150, 150).perform();
-         //actions().moveToElement($("#column-b")).clickAndHold()
-                 //.moveToElement($("#column-a")).release().perform();
+
+        //Change place
+        actions().moveToElement($("#column-b")).clickAndHold()
+                .moveToElement($("#column-a")).release().perform();
+
+        //Сheck results
+        $("#column-a").shouldHave(text("B"));
+
+
+    }
+
+    @Test
+    void changingPlacesTest2() {
+
+
+        open("/drag_and_drop");
+
+        //Change place
 
         actions().dragAndDrop($("#column-b"), $("#column-a")).build().perform();
 
+        //Сheck results
 
+        $("#column-b").shouldHave(text("A"));
 
-        $("#column-a").shouldHave(text("B"));
-
-        Configuration.holdBrowserOpen=true;
+        Configuration.holdBrowserOpen = true;
 
 
     }
