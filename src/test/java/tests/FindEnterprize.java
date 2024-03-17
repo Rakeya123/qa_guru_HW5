@@ -28,7 +28,7 @@ public class FindEnterprize {
 //Open right page
         $("#hero-section-brand-heading").shouldHave(text("The AI-powered")).shouldHave(visible);
 
-
+        Configuration.holdBrowserOpen=true;
     }
 }
 
