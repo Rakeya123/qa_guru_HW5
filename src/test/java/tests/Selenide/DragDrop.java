@@ -25,10 +25,17 @@ public class DragDrop {
 
         open("/drag_and_drop");
      SelenideElement element = $("#column-b");
-        actions().dragAndDropBy(element, 150, 150).perform();
+        // actions().dragAndDropBy(element, 150, 150).perform();
+         //actions().moveToElement($("#column-b")).clickAndHold()
+                 //.moveToElement($("#column-a")).release().perform();
 
-//
+        actions().dragAndDrop($("#column-b"), $("#column-a")).build().perform();
 
+
+
+        $("#column-a").shouldHave(text("B"));
+
+        Configuration.holdBrowserOpen=true;
 
 
     }
