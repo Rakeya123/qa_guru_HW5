@@ -41,11 +41,11 @@ public class DragDrop {
 
         open("/drag_and_drop");
 
-        //Change place
+        //Change place2
 
         actions().dragAndDrop($("#column-b"), $("#column-a")).build().perform();
 
-        //Сheck results
+        //Сheck results2
 
         $("#column-b").shouldHave(text("A"));
 
