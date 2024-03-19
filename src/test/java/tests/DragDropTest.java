@@ -1,18 +1,18 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.DragAndDropOptions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.DragAndDropOptions.to;
 import static com.codeborne.selenide.Selenide.*;
 
-public class DragDrop {
+public class DragDropTest {
     @BeforeAll
     static void openHerokuapp() {
-        //  Configuration.browserSize = "1920*1080";
+        Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://the-internet.herokuapp.com/";
         Configuration.pageLoadStrategy = "eager";
 
@@ -41,15 +41,14 @@ public class DragDrop {
 
         open("/drag_and_drop");
 
-        //Change place
+        //Change place 2
 
-        actions().dragAndDrop($("#column-b"), $("#column-a")).build().perform();
+        $("#column-b").dragAndDrop(to("#column-a"));
 
-        //Сheck results
+        //Сheck results 2
 
         $("#column-b").shouldHave(text("A"));
 
-        Configuration.holdBrowserOpen = true;
 
 
     }

@@ -5,10 +5,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
+
 import static com.codeborne.selenide.Selenide.*;
 
-public class FindEnterprize {
+public class FindEnterprizeTest {
     @BeforeAll
     static void openGitHab() {
         //  Configuration.browserSize = "1920*1080";
